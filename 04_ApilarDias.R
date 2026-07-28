@@ -4,27 +4,6 @@
 # 
 # Este codigo apila los .RData diarios generados por 01, 02 y 03 en tres
 # bases de datos unicas: gps (stack_gps), sc (stack_sc) y m (stack_movil);
-# son 20 dias de campaña en total, estructura de la base de datos:
-# 
-#   cada objeto diario apilado contiene la siguiente data:
-#   - GPS: lon / lat / ele / time / ruta, uno por punto registrado por el
-#          Garmin durante el monitoreo movil.
-#   
-#   - Central (sc): Datetime / pm2_5 / tipo, uno por segundo medido por el
-#                   sensor fijo del sitio central.
-#   
-#   - Movil (m): Datetime / pm2_5 / tipo, uno por segundo medido por el
-#                DustTrak del monitoreo movil.
-# 
-# Que resultado esperar de este codigo:
-#   - tres objetos consolidados en el environment de R, cada uno con sus
-#     respectivas variables:
-#     * gps: stack de los 20 dias de tracks GPS, con su columna ruta
-#            (la paz / huiscapi / loncoche) para diferenciar cada sub-ruta.
-#     * sc: stack de los 20 dias del sitio central, con su columna tipo
-#           para diferenciar blanco, duplicado y muestra.
-#     * m: stack de los 20 dias del monitoreo movil, con su columna tipo
-#          para diferenciar blanco, duplicado y muestra.
 
 rm(list = ls())
 graphics.off()

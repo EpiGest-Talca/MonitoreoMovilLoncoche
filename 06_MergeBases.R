@@ -3,35 +3,7 @@
 # Este codigo une los tres stacks generados por 04 (gps, sc, m) en una unica
 # base de datos por Datetime, segmenta las etapas de muestreo (blanco,
 # duplicado, muestra) y realiza la interpolacion espacial del GPS dentro de
-# la ruta; son 20 dias de campaña en total, estructura de la base de datos:
-# 
-#   la base unida (raw) contiene la siguiente informacion:
-#   - Datetime: corresponde a la hora del dato, llave de union entre movil,
-#               central y GPS.
-#   
-#   - pmmov / pmsc: corresponden a la concentracion de PM2.5 medida por el
-#                   monitoreo movil y por el sitio central, respectivamente.
-#   
-#   - tipo: corresponde a la etapa de muestreo segun el monitoreo movil
-#           (blanco inicial, duplicado 1, muestra, duplicado 2, blanco
-#           final), usada para clasificar tambien al sitio central.
-#   
-#   - lon / lat / ele / ruta: corresponden a la posicion GPS asociada a ese
-#                              Datetime, interpolada dentro de tramos
-#                              continuos cuando falta el dato puntual.
-#   
-#   - date: corresponde al dia de campaña, desplazado -4 horas para que una
-#           ruta que cruce medianoche quede asociada al dia en que empezo.
-# 
-# Que resultado esperar de este codigo:
-#   - una base de datos consolidada (raw) y sus 5 subconjuntos por etapa,
-#     guardados en Out/raw.RData, con sus respectivas variables:
-#     * b1 / b2: mediciones de blanco inicial y final (tipo 0 y 4).
-#     * d1 / d2: mediciones de duplicado 1 y 2 (tipo 1 y 3), usadas mas
-#                adelante para calcular el factor de correccion del movil.
-#     * med: mediciones en ruta (tipo 2), con pmmov y pmsc ya convertidos
-#            de mg/m3 a ug/m3 y con negativos filtrados a NA; es la base
-#            que se usara para las correcciones finales.
+# la ruta;
 # 
 # Nota: la conversion de unidades y el filtro de negativos se aplican
 #       unicamente sobre med; b1/b2/d1/d2 quedan en su unidad original.

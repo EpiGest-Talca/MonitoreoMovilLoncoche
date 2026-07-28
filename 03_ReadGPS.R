@@ -1,26 +1,8 @@
 # -03_ReadGPS
 # 
 # Este codigo lee los archivos GPX crudos del GPS Garmin usado durante el
-# monitoreo movil y los carga diferenciando la sub-ruta de origen; son 20
-# dias de campaña en total, estructura de la base de datos:
-# 
-#   cada uno de los gpx contiene la siguiente data:
-#   - lon / lat: corresponde a la coordenada geografica del punto registrado.
-#   
-#   - ele: corresponde a la elevacion del punto registrado, cuando el
-#          archivo la trae disponible.
-#   
-#   - time: corresponde a la hora del dato medido, resolucion del time
-#           depende de la frecuencia de registro del Garmin.
-#    
-# Que resultado esperar de este codigo:
-#   - cada gpx cargado en el environment de R, con sus respectivas variables:
-#     * ruta: que diferencia la paz, huiscapi y loncoche, para poder
-#             asociar cada punto GPS a su sub-ruta correspondiente.
-#     * lon / lat: Coordenadas de cada punto registrado.
-#     * ele: Elevacion del punto, cuando esta disponible.
-#     * time: Tiempo de cada dato segun frecuencia de registro del Garmin.
-# 
+# monitoreo movil y los carga diferenciando la sub-ruta de origen
+#  
 # Nota: segun los graficos de tracks por dia, el dia 5 (240812) no registra
 #       monitoreo en la ruta La Paz, por lo que ese dia se carga solo con
 #       huiscapi y loncoche.

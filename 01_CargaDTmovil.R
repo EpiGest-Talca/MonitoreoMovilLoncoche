@@ -4,20 +4,6 @@
 # 
 # Este primer codigo lee los archivos TXT crudos del DustTrak y
 # las carga diferenciando los diferentes tramos de la toma de datos;
-# son 20 dias de campaña en total, estructura de la base de datos:
-# 
-#   cada uno de los txt contiene la siguiente data:
-#   - Datetime: corresponde a la hora del dato medido, resolucion del datetime
-#               es segundo a segundo. 
-#   
-#   - pm2_5: corresponde a la concentracion del aire en el segundo medido.
-# 
-# Que resultado esperar de este codigo:
-#   - cada txt cargado en el environment de R, con sus respecticas variables:
-#     * tipo: que diferencia el blanco del dupli y de la muestra para poder 
-#             realizar futuras correcciones y el analisis de datos como tal.
-#     * Datetime: Tiempo de cada dato con resolucion de segundo.
-#     * pm2_5: es el pm2.5 captado por el DustTrak.
 
 rm(list = ls()) #limpian el entorno
 gc() #limpia la memoria ram

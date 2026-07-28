@@ -2,22 +2,7 @@
 # 
 # Este codigo lee los archivos TXT crudos del sensor del Sitio Central
 # y los carga diferenciando los mismos tramos de la toma
-# de datos que en el monitoreo movil; son 20 dias
-# de campaña en total, estructura de la base de datos:
-# 
-#   cada uno de los txt contiene la siguiente data:
-#   - Datetime: corresponde a la hora del dato medido, resolucion del datetime
-#               es segundo a segundo. 
-#   
-#   - pm2_5: corresponde a la concentracion del aire en el segundo medido,
-#            registrada por el equipo fijo del sitio central.
-# 
-# Que resultado esperar de este codigo:
-#   - cada txt cargado en el environment de R, con sus respecticas variables:
-#      * tipo: que diferencia el blanco del dupli y de la muestra para poder 
-#             realizar futuras correcciones y el analisis de datos como tal.
-#     * Datetime: Tiempo de cada dato con resolucion de segundo.
-#     * pm2_5: es el pm2.5 captado por el sensor del sitio central.
+# de datos que en el monitoreo movil
 
 rm(list = ls())
 gc()

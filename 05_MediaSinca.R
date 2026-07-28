@@ -3,34 +3,7 @@
 # Este codigo carga los datos de referencia de la estacion SINCA (PM2.5) y
 # de la estacion meteorologica INIA, y calcula el promedio de esas variables
 # solo durante la ventana horaria en que el monitoreo movil y el sitio
-# central estuvieron efectivamente en ruta (tipo == 2) cada dia; son 20
-# dias de campaña en total, estructura de la base de datos:
-# 
-#   los datos de entrada contienen la siguiente informacion:
-#   - Datetime_sinca: corresponde a la hora del dato SINCA/meteo, resolucion
-#                     horaria.
-#   
-#   - conc: corresponde a la concentracion de PM2.5 horaria registrada por
-#           SINCA (Registros validados, o preliminares si no hay validados).
-#   
-#   - Temp / HR / WS / WD: corresponden a temperatura, humedad relativa,
-#                           velocidad y direccion del viento, registradas
-#                           por la estacion agrometeorologica INIA.
-# 
-# Que resultado esperar de este codigo:
-#   - dos objetos guardados en Data/Processed/sinca, con sus respectivas variables:
-#     * sinca: promedio diario de PM2.5 y variables meteorologicas, calculado
-#              unicamente dentro de la ventana horaria de ruta de cada dia
-#              (date, mean_sinca, mean_temp, mean_hr, mean_ws, mean_wd), para
-#              ser usado como referencia en la correccion de las mediciones
-#              del movil y del sitio central.
-#     * sinca_hour: detalle horario de SINCA y meteorologia dentro de esas
-#                   mismas ventanas de ruta, por dia (Fecha_ID).
-# 
-# Nota: la ventana horaria de cada dia se define combinando los timestamps
-#       minimo y maximo del movil y del sitio central en tramo de ruta,
-#       redondeados a la hora completa para calzar con la resolucion horaria
-#       de SINCA.
+# central estuvieron efectivamente en ruta (tipo == 2) cada dia
 
 rm(list = ls())
 gc()
