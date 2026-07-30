@@ -61,17 +61,17 @@ abrir <- function(a, b, c, d, e, f, g, h, i) {
   return(df)
 }
 
-if (!dir.exists("Data/Processed")) { #crea la carpeta para guardar los datos procesados
-  dir.create("Data/Processed")
+if (!dir.exists("Processed")) { #crea la carpeta para guardar los datos procesados
+  dir.create("Processed")
 }
 
-if (!dir.exists("Data/Processed/movil")) { #crea la carpeta para guardar los datos procesados
-  dir.create("Data/Processed/movil")
+if (!dir.exists("Processed/movil")) { #crea la carpeta para guardar los datos procesados
+  dir.create("Processed/movil")
 }
 
 # ---- Dia 1 ---- 
 d1 <- abrir(
-  a = "Data/Raw/movil/DT5203 240727.txt",
+  a = "Data/movil/DT5203 240727.txt",
   b = 25, c = 88,    # B1
   d = 113, e = 334,  # D1
   f = 9271, g = 9458,   # D2
@@ -79,40 +79,40 @@ d1 <- abrir(
 )[-c(9243:9244), ] #de aqui en adelante si aparece este comando de "-c" es 
 # porque habian intervalos de datos que tenia que borrar
 
-save(d1, file = "Data/Processed/movil/movil_240727.RData") # para guardar el procesado 
+save(d1, file = "Processed/movil/movil_240727.RData") # para guardar el procesado 
 
 # ---- Dia 2 ---- 
 d2 <- abrir(
-  a = "Data/Raw/movil/DT5203 240728.txt",
+  a = "Data/movil/DT5203 240728.txt",
   b = 391, c = 460,  # B1
   d = 485, e = 686,  # D1
   f = 10646, g = 10841,  # D2
   h = 10855, i = 10929   # B2
 )[-c(1:270), ]
 
-save(d2, file = "Data/Processed/movil/movil_240728.RData")
+save(d2, file = "Processed/movil/movil_240728.RData")
 
 # ---- Dia 3 ---- 
 d3 <- abrir(
-  a = "Data/Raw/movil/DT5203 240729.txt",
+  a = "Data/movil/DT5203 240729.txt",
   b = 25, c = 86,    # B1
   d = 111, e = 300,  # D1
   f = 9548, g = 9741,   # D2
   h = 9766, i = 9829    # B2
 )
 
-save(d3, file = "Data/Processed/movil/movil_240729.RData")
+save(d3, file = "Processed/movil/movil_240729.RData")
 
 # ---- Dia 4 ---- 
 d4 <- abrir(
-  a = "Data/Raw/movil/DT5203 240730.txt",
+  a = "Data/movil/DT5203 240730.txt",
   b = 25, c = 89,    # B1
   d = 114, e = 303,  # D1
   f = 10495, g = 10683,  # D2
   h = 10708, i = 10771   # B2
 )
 
-save(d4, file = "Data/Processed/movil/movil_240730.RData")
+save(d4, file = "Processed/movil/movil_240730.RData")
 
 
 #-------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ save(d4, file = "Data/Processed/movil/movil_240730.RData")
 # ---- Dia 5 ---- valores duplicados revisar
 # Descarga manual del equipo (comentarios codigo original)
 #d5 <- abrir(
-#  a = "Data/Raw/movil/DT5203 240812 comma.txt",
+#  a = "Data/movil/DT5203 240812 comma.txt",
 #  b = 25, c = 87,    # B1
 #  d = 112, e = 299,  # D1
 #  f = 14347, g = 14538,  # D2
@@ -130,7 +130,7 @@ save(d4, file = "Data/Processed/movil/movil_240730.RData")
 #)[-c(14510:23883), ]
 
 d5 <- abrir(
-  a = "Data/Raw/movil/DT5203 240812 comma.txt",
+  a = "Data/movil/DT5203 240812 comma.txt",
   b = 14479, c = 14718,    # B1
   d = 14719, e = 14955,  # D1
   f = 23921, g = 24197,  # D2
@@ -139,172 +139,172 @@ d5 <- abrir(
 
 
 
-save(d5, file = "Data/Processed/movil/movil_240812.RData")
+save(d5, file = "Processed/movil/movil_240812.RData")
 
 # ---- Dia 6 ----
 d6 <- abrir(
-  a = "Data/Raw/movil/DT5203 240813 comma.txt",
+  a = "Data/movil/DT5203 240813 comma.txt",
   b = 25, c = 86,    # B1
   d = 111, e = 300,  # D1
   f = 11041, g = 11246,  # D2
   h = 11271, i = 11336   # B2
 )
 
-save(d6, file = "Data/Processed/movil/movil_240813.RData")
+save(d6, file = "Processed/movil/movil_240813.RData")
 
 # ---- Dia 7 ---- 
 d7 <- abrir(
-  a = "Data/Raw/movil/DT5203 240814 comma.txt",
+  a = "Data/movil/DT5203 240814 comma.txt",
   b = 25, c = 116,   # B1
   d = 141, e = 331,  # D1
   f = 12366, g = 12555,  # D2
   h = 12580, i = 12643   # B2
 )
 
-save(d7, file = "Data/Processed/movil/movil_240814.RData")
+save(d7, file = "Processed/movil/movil_240814.RData")
 
 # ---- Dia 8 ---- 
 d8 <- abrir(
-  a = "Data/Raw/movil/DT5203 240816 comma.txt",
+  a = "Data/movil/DT5203 240816 comma.txt",
   b = 25, c = 90,    # B1
   d = 115, e = 301,  # D1
   f = 11466, g = 11648,  # D2
   h = 11673, i = 11735   # B2
 )
 
-save(d8, file = "Data/Processed/movil/movil_240816.RData")
+save(d8, file = "Processed/movil/movil_240816.RData")
 
 # ---- Dia 9 ---- 
 d9 <- abrir(
-  a = "Data/Raw/movil/DT5203 240819 comma.txt",
+  a = "Data/movil/DT5203 240819 comma.txt",
   b = 25, c = 93,    # B1
   d = 118, e = 308,  # D1
   f = 11021, g = 11211,  # D2
   h = 11236, i = 11301   # B2
 )
 
-save(d9, file = "Data/Processed/movil/movil_240819.RData")
+save(d9, file = "Processed/movil/movil_240819.RData")
 
 # ---- Dia 10 ---- 
 d10 <- abrir(
-  a = "Data/Raw/movil/DT5203 240823 comma.txt",
+  a = "Data/movil/DT5203 240823 comma.txt",
   b = 25, c = 86,    # B1
   d = 111, e = 296,  # D1
   f = 11001, g = 11191,  # D2
   h = 11216, i = 11278   # B2
 )[-c(10973:10976,10757:10760), ]
 
-save(d10, file = "Data/Processed/movil/movil_240823.RData")
+save(d10, file = "Processed/movil/movil_240823.RData")
 
 # ---- Dia 11 ----
 d11 <- abrir(
-  a = "Data/Raw/movil/DT5203 240824 comma.txt",
+  a = "Data/movil/DT5203 240824 comma.txt",
   b = 25, c = 90,    # B1
   d = 115, e = 297,  # D1
   f = 11024, g = 11208,  # D2
   h = 11233, i = 11298   # B2
 )
 
-save(d11, file = "Data/Processed/movil/movil_240824.RData")
+save(d11, file = "Processed/movil/movil_240824.RData")
 
 # ---- Dia 12 ----
 d12 <- abrir(
-  a = "Data/Raw/movil/DT5203 240827 comma.txt",
+  a = "Data/movil/DT5203 240827 comma.txt",
   b = 25, c = 86,    # B1
   d = 111, e = 298,  # D1
   f = 9808, g = 9995,   # D2
   h = 10022, i = 10082  # B2
 )
 
-save(d12, file = "Data/Processed/movil/movil_240827.RData")
+save(d12, file = "Processed/movil/movil_240827.RData")
 
 # ---- Dia 13 ----
 d13 <- abrir(
-  a = "Data/Raw/movil/DT5203 240828 comma.txt",
+  a = "Data/movil/DT5203 240828 comma.txt",
   b = 25, c = 87,    # B1
   d = 112, e = 295,  # D1
   f = 10766, g = 10952,  # D2
   h = 10997, i = 11039   # B2
 )
 
-save(d13, file = "Data/Processed/movil/movil_240828.RData")
+save(d13, file = "Processed/movil/movil_240828.RData")
 
 # ---- Dia 14 ----
 d14 <- abrir(
-  a = "Data/Raw/movil/DT5203 240911 comma.txt",
+  a = "Data/movil/DT5203 240911 comma.txt",
   b = 25, c = 88,    # B1
   d = 113, e = 298,  # D1
   f = 10696, g = 10882,  # D2
   h = 10907, i = 10969   # B2
 )
 
-save(d14, file = "Data/Processed/movil/movil_240911.RData")
+save(d14, file = "Processed/movil/movil_240911.RData")
 
 # ---- Dia 15 ----
 d15 <- abrir(
-  a = "Data/Raw/movil/DT5203 240912 comma.txt",
+  a = "Data/movil/DT5203 240912 comma.txt",
   b = 25, c = 86,    # B1
   d = 111, e = 293,  # D1
   f = 10130, g = 10318,  # D2
   h = 10343, i = 10407   # B2
 )
 
-save(d15, file = "Data/Processed/movil/movil_240912.RData")
+save(d15, file = "Processed/movil/movil_240912.RData")
 
 # ---- Dia 16 ----
 d16 <- abrir(
-  a = "Data/Raw/movil/DT5203 240913 comma.txt",
+  a = "Data/movil/DT5203 240913 comma.txt",
   b = 25, c = 87,    # B1
   d = 112, e = 295,  # D1
   f = 10703, g = 10885,  # D2
   h = 10910, i = 10972   # B2
 )
 
-save(d16, file = "Data/Processed/movil/movil_240913.RData")
+save(d16, file = "Processed/movil/movil_240913.RData")
 
 # ---- Dia 17 ----
 d17 <- abrir(
-  a = "Data/Raw/movil/DT5203 240914 comma.txt",
+  a = "Data/movil/DT5203 240914 comma.txt",
   b = 25, c = 90,    # B1
   d = 115, e = 297,  # D1
   f = 11240, g = 11427,  # D2
   h = 11452, i = 11514   # B2
 )
 
-save(d17, file = "Data/Processed/movil/movil_240914.RData")
+save(d17, file = "Processed/movil/movil_240914.RData")
 
 # ---- Dia 18 ----
 d18 <- abrir(
-  a = "Data/Raw/movil/DT5203 240915 comma.txt",
+  a = "Data/movil/DT5203 240915 comma.txt",
   b = 25, c = 87,    # B1
   d = 112, e = 297,  # D1
   f = 9749, g = 9933,   # D2
   h = 9958, i = 10019   # B2
 )
 
-save(d18, file = "Data/Processed/movil/movil_240915.RData")
+save(d18, file = "Processed/movil/movil_240915.RData")
 
 # ---- Dia 19 ----
 d19 <- abrir(
-  a = "Data/Raw/movil/DT5203 240916 comma.txt",
+  a = "Data/movil/DT5203 240916 comma.txt",
   b = 25, c = 89,    # B1
   d = 114, e = 299,  # D1
   f = 10261, g = 10452,  # D2
   h = 10477, i = 10538   # B2
 )
 
-save(d19, file = "Data/Processed/movil/movil_240916.RData")
+save(d19, file = "Processed/movil/movil_240916.RData")
 
 # ---- Dia 20 ----
 d20 <- abrir(
-  a = "Data/Raw/movil/DT5203 240926 comma.txt",
+  a = "Data/movil/DT5203 240926 comma.txt",
   b = 25, c = 88,    # B1
   d = 113, e = 297,  # D1
   f = 11243, g = 11430,  # D2
   h = 11455, i = 11520   # B2
 )
 
-save(d20, file = "Data/Processed/movil/movil_240926.RData")
+save(d20, file = "Processed/movil/movil_240926.RData")
 
 
 # esta parte del codigo era para verificar que todos los "tipos" de datos 

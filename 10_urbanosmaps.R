@@ -15,12 +15,12 @@ library(OpenStreetMap)
 library(sf)
 library(prettymapr)
 
-load("Data/Processed/gps/stack_gps.RData")   # gps: lon, lat, ele, time, ruta
+load("Processed/gps/stack_gps.RData")   # gps: lon, lat, ele, time, ruta
 
 # ------------------------------------------------------------------
-# Límites urbanos digitizados a mano (Out/shapesurbanos)
+# Límites urbanos digitizados a mano (Processed/Shape/shapesurbanos)
 # ------------------------------------------------------------------
-dir_urbanos <- "Data/Shape/shapesurbanos"
+dir_urbanos <- "Processed/Shape/shapesurbanos"
 limite_loncoche <- st_read(file.path(dir_urbanos, "zona_urbana_loncoche.shp"), quiet = TRUE) |> st_transform(3857)
 limite_huiscapi <- st_read(file.path(dir_urbanos, "zona_urbana_huiscapi.shp"), quiet = TRUE) |> st_transform(3857)
 limite_la_paz   <- st_read(file.path(dir_urbanos, "zona_urbana_la_paz.shp"),   quiet = TRUE) |> st_transform(3857)
@@ -81,7 +81,7 @@ make_map <- function(nombre_ruta, sf_limite, aspecto = ASPECTO, zoom = ZOOM) {
 map1 <- make_map("loncoche", limite_loncoche)   # Loncoche
 map2 <- make_map("huiscapi", limite_huiscapi)   # Huiscapi
 map3 <- make_map("la paz",   limite_la_paz)     # La Paz
-save(map1, map2, map3, file = "Data/Shape/Loncochemap.RData")
+save(map1, map2, map3, file = "Processed/Shape/Loncochemap.RData")
 
 # ------------------------------------------------------------------
 # 2. Ruta de cada zona, transformada al CRS del basemap (Mercator 3857)
@@ -94,7 +94,7 @@ ruta_zona <- function(nombre_ruta) {
 # ------------------------------------------------------------------
 # 3. Exportar capas para QGIS
 # ------------------------------------------------------------------
-dir_qgis <- "Out/Shapefiles_Mapas_Base"
+dir_qgis <- "Processed/Shapefiles_Mapas_Base"
 if (!dir.exists(dir_qgis)) dir.create(dir_qgis, recursive = TRUE)
 suppressWarnings(st_write(gps_sf, paste0(dir_qgis, "/Ruta_Movil_GPS.shp"),
                           delete_dsn = TRUE, quiet = TRUE))
@@ -140,4 +140,3 @@ for (p in paneles) {
 
 box(col = "black", lwd = 10, which = "outer")
 dev.off()
-

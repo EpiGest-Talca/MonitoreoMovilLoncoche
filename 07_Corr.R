@@ -11,8 +11,8 @@
 rm(list = ls())
 gc()
 
-load("Data/Processed/raw.RData")          # raw, med, b1, b2, d1, d2
-load("Data/Processed/sinca/sinca.RData")  # objeto: sinca (date, mean_sinca)
+load("Processed/raw.RData")          # raw, med, b1, b2, d1, d2
+load("Processed/sinca/sinca.RData")  # objeto: sinca (date, mean_sinca)
 
 # Ratio pmsc/pmmov en cada duplicado.
 d1$ratio <- with(d1, ifelse(
@@ -80,7 +80,7 @@ med[] <- lapply(med, function(x) {
 
 med$hour <- as.numeric(format(med$Datetime, "%H"))
 
-save(med, file = "Data/Processed/med.RData")
+save(med, file = "Processed/med.RData")
 
 # CSV con NA como vacio para compartir externamente
-write.csv(med, file = "Data/Processed/med.csv", row.names = FALSE, na = "")
+write.csv(med, file = "Processed/med.csv", row.names = FALSE, na = "")

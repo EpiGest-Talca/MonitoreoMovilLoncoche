@@ -48,7 +48,7 @@ comuna_loncoche_completa <- subset(comunas_sf, codigo_comuna == "09109")
 # ------------------------------------------------------------------
 # 2. Polígonos Urbanos (Loncoche, Huiscapi y La Paz) - digitizados a mano
 # ------------------------------------------------------------------
-dir_urbanos <- "Data/Shape/shapesurbanos"
+dir_urbanos <- "Processed/Shape/shapesurbanos"
 poly_loncoche <- st_read(file.path(dir_urbanos, "zona_urbana_loncoche.shp"), quiet = TRUE) %>% st_transform(4326)
 poly_huiscapi <- st_read(file.path(dir_urbanos, "zona_urbana_huiscapi.shp"), quiet = TRUE) %>% st_transform(4326)
 poly_lapaz    <- st_read(file.path(dir_urbanos, "zona_urbana_la_paz.shp"),   quiet = TRUE) %>% st_transform(4326)

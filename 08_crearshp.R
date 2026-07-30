@@ -22,7 +22,7 @@ library(tidyterra)
 library(ggplot2)
 
 
-if (!dir.exists("Data/Shape/shapesurbanos")) dir.create("Data/Shape/shapesurbanos", recursive = TRUE)
+if (!dir.exists("Processed/Shape/shapesurbanos")) dir.create("Processed/Shape/shapesurbanos", recursive = TRUE)
 
 # coordenadas aproximadas de cada localidad (ajusta lng/lat según corresponda)
 coords <- list(
@@ -49,8 +49,7 @@ zona_la_paz$nombre   <- "La Paz - zona urbana"
 zona_loncoche$nombre <- "Loncoche - zona urbana"
 zona_huiscapi$nombre <- "Huiscapi - zona urbana"
 
-# --- guardar shapefiles en Out/shapesurbanos ---
-st_write(zona_la_paz,   file.path("Data/Shape/shapesurbanos", "zona_urbana_la_paz.shp"),   delete_layer = TRUE)
-st_write(zona_loncoche, file.path("Data/Shape/shapesurbanos", "zona_urbana_loncoche.shp"), delete_layer = TRUE)
-st_write(zona_huiscapi, file.path("Data/Shape/shapesurbanos", "zona_urbana_huiscapi.shp"), delete_layer = TRUE)
-
+# --- guardar shapefiles en Processed/Shape/shapesurbanos ---
+st_write(zona_la_paz,   file.path("Processed/Shape/shapesurbanos", "zona_urbana_la_paz.shp"),   delete_layer = TRUE)
+st_write(zona_loncoche, file.path("Processed/Shape/shapesurbanos", "zona_urbana_loncoche.shp"), delete_layer = TRUE)
+st_write(zona_huiscapi, file.path("Processed/Shape/shapesurbanos", "zona_urbana_huiscapi.shp"), delete_layer = TRUE)

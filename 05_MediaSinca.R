@@ -16,14 +16,14 @@ library(conflicted)
 conflict_prefer("filter", "dplyr");conflict_prefer("select", "dplyr");conflict_prefer("mutate", "dplyr")
 conflict_prefer("rename", "dplyr");conflict_prefer("summarise", "dplyr");conflict_prefer("group_by", "dplyr")
 
-if (!dir.exists("Data/Processed/sinca")) {
-  dir.create("Data/Processed/sinca", recursive = TRUE)
+if (!dir.exists("Processed/sinca")) {
+  dir.create("Processed/sinca", recursive = TRUE)
 }
 
 # ------------------------------------------------------------------
 # 1) PM2.5
 # ------------------------------------------------------------------
-sinca_raw <- read.csv("Data/Raw/sinca/datosPM25_240720_240930.csv", sep = ";")
+sinca_raw <- read.csv("Data/sinca/datosPM25_240720_240930.csv", sep = ";")
 
 sinca_pm25_clean <- sinca_raw %>%
   mutate(
@@ -38,7 +38,7 @@ sinca_pm25_clean <- sinca_raw %>%
 # ------------------------------------------------------------------
 # 2) Meteorologia  (estacion INIA agrometeorologia - un solo CSV horario)   # <-- METEO
 # ------------------------------------------------------------------
-ARCHIVO_METEO <- "Data/Raw/sinca/agrometeorologia.csv" 
+ARCHIVO_METEO <- "Data/sinca/agrometeorologia.csv" 
 WS_A_MS       <- FALSE   # <-- METEO: TRUE si necesitas el viento en m/s en vez de km/h
 
 leer_agromet <- function(ruta, ws_a_ms = WS_A_MS) {
@@ -84,12 +84,12 @@ sinca_clean <- full_join(sinca_pm25_clean, df_meteo, by = "Datetime_sinca") %>%
 #    y del central (solo tramo en ruta, tipo == 2) y se extraen las horas SINCA
 #    que caen dentro de esa ventana.
 # ------------------------------------------------------------------
-files_movil <- list.files("Data/Processed/movil", pattern = "movil_.*\\.RData", full.names = TRUE)
+files_movil <- list.files("Processed/movil", pattern = "movil_.*\\.RData", full.names = TRUE)
 
 sinca_temp_full <- map_df(files_movil, function(path_m) {
   
   fecha_id <- gsub(".*movil_(\\d{6})\\.RData", "\\1", path_m)
-  path_a   <- file.path("Data/Processed/sc", paste0("sc_", fecha_id, ".RData"))   # Loncoche: central -> Out/sc/sc_*
+  path_a   <- file.path("Processed/sc", paste0("sc_", fecha_id, ".RData"))   # Loncoche: central -> Processed/sc/sc_*
   
   if (!file.exists(path_a)) return(NULL)
   
@@ -153,6 +153,5 @@ sinca_hour <- sinca_temp_full %>%
   ) %>%
   select(Datetime, Hour, SC_PM25, Temp, HR, WS, WD, Fecha_ID)                             
 
-save(sinca_hour, file = "Data/Processed/sinca/sinca_hour.RData")
-save(sinca,      file = "Data/Processed/sinca/sinca.RData")
-
+save(sinca_hour, file = "Processed/sinca/sinca_hour.RData")
+save(sinca,      file = "Processed/sinca/sinca.RData")

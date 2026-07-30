@@ -18,9 +18,9 @@ library(dplyr)
 library(zoo)
 library(tidyr)
 
-load("Data/Processed/gps/stack_gps.RData")        # objeto: gps  (lon, lat, ele, time, ruta)
-load("Data/Processed/sc/stack_sc.RData")          # objeto: sc
-load("Data/Processed/movil/stack_movil.RData")    # objeto: m
+load("Processed/gps/stack_gps.RData")        # objeto: gps  (lon, lat, ele, time, ruta)
+load("Processed/sc/stack_sc.RData")          # objeto: sc
+load("Processed/movil/stack_movil.RData")    # objeto: m
 
 # Homologar nombres de columnas antes del merge
 names(gps)[names(gps) == "time"] <- "Datetime"
@@ -88,5 +88,4 @@ med <- med %>%
   ungroup() %>%
   select(-diff_minutos, -es_nuevo_viaje, -corte_continuidad, -grupo_interpolacion)
 
-save(raw, med, b1, b2, d1, d2, file = "Data/Processed/raw.RData")
-
+save(raw, med, b1, b2, d1, d2, file = "Processed/raw.RData")

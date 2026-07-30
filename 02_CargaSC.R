@@ -54,229 +54,229 @@ abrir <- function(a, b, c, d, e, f, g, h, i) {
   return(df)
 }
 
-if (!dir.exists("Data/Processed/sc")) {  # crea el archivo dentro de processed
-  dir.create("Data/Processed/sc", recursive = TRUE)
+if (!dir.exists("Processed/sc")) {  # crea el archivo dentro de processed
+  dir.create("Processed/sc", recursive = TRUE)
 }
 
 # ---- Dia 1 ---- 
 a1 <- abrir(
-  a = "Data/Raw/sc/DT261395 240727.txt",
+  a = "Data/sc/DT261395 240727.txt",
   b = 25, c = 88, #B1
   d = 113, e = 333, #D1
   f = 14887, g = 15074, #D2
   h = 15075, i = 15163 #B2
 )
 
-save(a1, file = "Data/Processed/sc/sc_240727.RData")
+save(a1, file = "Processed/sc/sc_240727.RData")
 
 # ---- Dia 2 ---- 
 a2 <- abrir(
-  a = "Data/Raw/sc/DT261395 240728.txt",
+  a = "Data/sc/DT261395 240728.txt",
   b = 25, c = 92, #B1
   d = 117, e = 314, #D1
   f = 16174, g = 16372, #D2
   h = 16397, i = 16461 #B2
 )
 
-save(a2, file = "Data/Processed/sc/sc_240728.RData")
+save(a2, file = "Processed/sc/sc_240728.RData")
 
 # ---- Dia 3 ---- 
 a3 <- abrir(
-  a = "Data/Raw/sc/DT261395 240729.txt",
+  a = "Data/sc/DT261395 240729.txt",
   b = 25, c = 86, #B1
   d = 111, e = 300, #D1
   f = 16719, g = 16912, #D2
   h = 16937, i = 16999 #B2
 )
 
-save(a3, file = "Data/Processed/sc/sc_240729.RData")
+save(a3, file = "Processed/sc/sc_240729.RData")
 
 # ---- Dia 4 ----
 a4 <- abrir(
-  a = "Data/Raw/sc/DT261395 240730.txt",
+  a = "Data/sc/DT261395 240730.txt",
   b = 25, c = 88, #B1
   d = 113, e = 302, #D1
   f = 16129, g = 16316, #D2
   h = 16341, i = 16403 #B2
 )
 
-save(a4, file = "Data/Processed/sc/sc_240730.RData")
+save(a4, file = "Processed/sc/sc_240730.RData")
 
 # ---- Dia 5 ----
 a5 <- abrir(
-  a = "Data/Raw/sc/DT261395 240812 comma.txt",
+  a = "Data/sc/DT261395 240812 comma.txt",
   b = 25, c = 87, #B1
   d = 112, e = 299, #D1
   f = 14350, g = 14538, #D2
   h = 14563, i = 14630 #B2
 )
 
-save(a5, file = "Data/Processed/sc/sc_240812.RData")
+save(a5, file = "Processed/sc/sc_240812.RData")
 
 # ---- Dia 6 ----
 a6 <- abrir(
-  a = "Data/Raw/sc/DT261395 240813 comma.txt",
+  a = "Data/sc/DT261395 240813 comma.txt",
   b = 25, c = 88, #B1
   d = 113, e = 301, #D1
   f = 16480, g = 16678, #D2
   h = 16703, i = 16764 #B2
 )
 
-save(a6, file = "Data/Processed/sc/sc_240813.RData")
+save(a6, file = "Processed/sc/sc_240813.RData")
 
 # ---- Dia 7 ----
 a7 <- abrir(
-  a = "Data/Raw/sc/DT261395 240814 comma.txt",
+  a = "Data/sc/DT261395 240814 comma.txt",
   b = 25, c = 89, #B1
   d = 114, e = 307, #D1
   f = 19841, g = 20030, #D2
   h = 20055, i = 20117 #B2
 )
 
-save(a7, file = "Data/Processed/sc/sc_240814.RData")
+save(a7, file = "Processed/sc/sc_240814.RData")
 
 # ---- Dia 8 ----
 a8 <- abrir(
-  a = "Data/Raw/sc/DT261395 240816 comma.txt",
+  a = "Data/sc/DT261395 240816 comma.txt",
   b = 25, c = 88, #B1
   d = 113, e = 302, #D1
   f = 18100, g = 18284, #D2
   h = 18309, i = 18373 #B2
 )
 
-save(a8, file = "Data/Processed/sc/sc_240816.RData")
+save(a8, file = "Processed/sc/sc_240816.RData")
 
 # ---- Dia 9 ----
 a9 <- abrir(
-  a = "Data/Raw/sc/DT261395 240819 comma.txt",
+  a = "Data/sc/DT261395 240819 comma.txt",
   b = 25, c = 86, #B1
   d = 111, e = 299, #D1
   f = 16956, g = 17142, #D2
   h = 17167, i = 17232 #B2
 )
 
-save(a9, file = "Data/Processed/sc/sc_240819.RData")
+save(a9, file = "Processed/sc/sc_240819.RData")
 
 # ---- Dia 10 ----
 a10 <- abrir(
-  a = "Data/Raw/sc/DT261395 240823 comma.txt",
+  a = "Data/sc/DT261395 240823 comma.txt",
   b = 25, c = 86, #B1
   d = 111, e = 296, #D1
   f = 17633, g = 17823, #D2
   h = 17848, i = 17909 #B2
 )
 
-save(a10, file = "Data/Processed/sc/sc_240823.RData")
+save(a10, file = "Processed/sc/sc_240823.RData")
 
 # ---- Dia 11 ----
 a11 <- abrir(
-  a = "Data/Raw/sc/DT261395 240824 comma.txt",
+  a = "Data/sc/DT261395 240824 comma.txt",
   b = 25, c = 87, #B1
   d = 112, e = 294, #D1
   f = 17365, g = 17547, #D2
   h = 17572, i = 17634 #B2
 )
 
-save(a11, file = "Data/Processed/sc/sc_240824.RData")
+save(a11, file = "Processed/sc/sc_240824.RData")
 
 # ---- Dia 12 ----
 a12 <- abrir(
-  a = "Data/Raw/sc/DT261395 240827 comma.txt",
+  a = "Data/sc/DT261395 240827 comma.txt",
   b = 25, c = 89, #B1
   d = 114, e = 300, #D1
   f = 16182, g = 16368, #D2
   h = 16393, i = 16459 #B2
 )
 
-save(a12, file = "Data/Processed/sc/sc_240827.RData")
+save(a12, file = "Processed/sc/sc_240827.RData")
 
 # ---- Dia 13 ----
 a13 <- abrir(
-  a = "Data/Raw/sc/DT261395 240828 comma.txt",
+  a = "Data/sc/DT261395 240828 comma.txt",
   b = 25, c = 101, #B1
   d = 126, e = 309, #D1
   f = 17557, g = 17740, #D2
   h = 17765, i = 17828 #B2
 )
 
-save(a13, file = "Data/Processed/sc/sc_240828.RData")
+save(a13, file = "Processed/sc/sc_240828.RData")
 
 # ---- Dia 14 ----
 a14 <- abrir(
-  a = "Data/Raw/sc/DT261395 240911 comma.txt",
+  a = "Data/sc/DT261395 240911 comma.txt",
   b = 25, c = 90, #B1
   d = 115, e = 299, #D1
   f = 17593, g = 17776, #D2
   h = 17801, i = 17863 #B2
 )
 
-save(a14, file = "Data/Processed/sc/sc_240911.RData")
+save(a14, file = "Processed/sc/sc_240911.RData")
 
 # ---- Dia 15 ----
 a15 <- abrir(
-  a = "Data/Raw/sc/DT261395 240912 comma.txt",
+  a = "Data/sc/DT261395 240912 comma.txt",
   b = 25, c = 87, #B1
   d = 112, e = 295, #D1
   f = 16671, g = 16858, #D2
   h = 16883, i = 16944 #B2
 )
 
-save(a15, file = "Data/Processed/sc/sc_240912.RData")
+save(a15, file = "Processed/sc/sc_240912.RData")
 
 # ---- Dia 16 ----
 a16 <- abrir(
-  a = "Data/Raw/sc/DT261395 240913 comma.txt",
+  a = "Data/sc/DT261395 240913 comma.txt",
   b = 25, c = 87, #B1
   d = 112, e = 296, #D1
   f = 17255, g = 17437, #D2
   h = 17462, i = 17523 #B2
 )
 
-save(a16, file = "Data/Processed/sc/sc_240913.RData")
+save(a16, file = "Processed/sc/sc_240913.RData")
 
 # ---- Dia 17 ----
 a17 <- abrir(
-  a = "Data/Raw/sc/DT261395 240914 comma.txt",
+  a = "Data/sc/DT261395 240914 comma.txt",
   b = 25, c = 88, #B1
   d = 113, e = 295, #D1
   f = 18730, g = 18922, #D2
   h = 18947, i = 19010 #B2
 )
 
-save(a17, file = "Data/Processed/sc/sc_240914.RData")
+save(a17, file = "Processed/sc/sc_240914.RData")
 
 # ---- Dia 18 ----
 a18 <- abrir(
-  a = "Data/Raw/sc/DT261395 240915 comma.txt",
+  a = "Data/sc/DT261395 240915 comma.txt",
   b = 25, c = 86, #B1
   d = 111, e = 295, #D1
   f = 16237, g = 16421, #D2
   h = 16446, i = 16508 #B2
 )
 
-save(a18, file = "Data/Processed/sc/sc_240915.RData")
+save(a18, file = "Processed/sc/sc_240915.RData")
 
 # ---- Dia 19 ----
 a19 <- abrir(
-  a = "Data/Raw/sc/DT261395 240916 comma.txt",
+  a = "Data/sc/DT261395 240916 comma.txt",
   b = 25, c = 87, #B1
   d = 112, e = 293, #D1
   f = 17407, g = 17600, #D2
   h = 17625, i = 17686 #B2
 )
 
-save(a19, file = "Data/Processed/sc/sc_240916.RData")
+save(a19, file = "Processed/sc/sc_240916.RData")
 
 # ---- Dia 20 ----
 a20 <- abrir(
-  a = "Data/Raw/sc/DT261395 240926 comma.txt",
+  a = "Data/sc/DT261395 240926 comma.txt",
   b = 25, c = 87, #B1
   d = 112, e = 295, #D1
   f = 17442, g = 17625, #D2
   h = 17650, i = 17713 #B2
 )
 
-save(a20, file = "Data/Processed/sc/sc_240926.RData")
+save(a20, file = "Processed/sc/sc_240926.RData")
 
 # library(ggplot2)
 # library(dplyr)
