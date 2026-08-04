@@ -115,11 +115,10 @@ exportar_mapa_satelital <- function(poligono_borde, poligono_achurado, nombre_ar
 # ------------------------------------------------------------------
 # 5. Generación de la Cascada (7 mapas)
 # ------------------------------------------------------------------
-# zoom subido de 16 a 18 para los 3 mapas urbanos (evita borrosidad al
-# imprimir grande, ya que el area cubierta es muy pequeña)
-exportar_mapa_satelital(poly_loncoche, poly_loncoche, "FigA1_Urban_Loncoche", 18, "Urban Loncoche", "yellow")
-exportar_mapa_satelital(poly_huiscapi, poly_huiscapi, "FigA2_Urban_Huiscapi", 18, "Urban Huiscapi", "yellow")
-exportar_mapa_satelital(poly_lapaz, poly_lapaz, "FigA3_Urban_La_Paz", 18, "Urban La Paz", "yellow")
+# zoom subido de 16 a 18 para los 3 mapas urbanos 
+exportar_mapa_satelital(poly_loncoche, poly_loncoche, "FigA1_Urban_Loncoche", 16, "Urban Loncoche", "yellow")
+exportar_mapa_satelital(poly_huiscapi, poly_huiscapi, "FigA2_Urban_Huiscapi", 16, "Urban Huiscapi", "yellow")
+exportar_mapa_satelital(poly_lapaz, poly_lapaz, "FigA3_Urban_La_Paz", 16, "Urban La Paz", "yellow")
 
 exportar_mapa_satelital(comuna_loncoche_completa, tres_urbanos, "FigB_Loncoche_Commune", 13, "Loncoche Commune", "cyan")
 exportar_mapa_satelital(prov_cautin, comuna_loncoche_completa, "FigC_Cautin_Province", 9, "Cautin Province", "cyan")

@@ -5,27 +5,7 @@
 # digitalizado en 08, y las visualiza sobre un mapa satelital para revisar
 # la cobertura de cada resolucion antes de usarlas en la interpolacion
 # espacial, estructura de la base de datos:
-# 
-#   los datos de entrada contienen la siguiente informacion:
-#   - poly_loncoche / poly_huiscapi / poly_lapaz: corresponden a los
-#     poligonos urbanos digitalizados en 08, proyectados a UTM 18S
-#     (EPSG:32718) para el calculo de la grilla y a 4326 para el basemap.
-#   
-#   - config_resoluciones: corresponde a la lista de resoluciones (en
-#     metros) a generar por localidad; Loncoche usa 50/75/100/150m,
-#     Huiscapi 50/75/100m y La Paz 25/50m, segun el tamaño relativo de
-#     cada zona urbana.
-# 
-# Que resultado esperar de este codigo:
-#   - un archivo .RData y una figura por combinacion localidad-resolucion,
-#     con sus respectivas variables:
-#     * Processed/EmptyRasters.RData: los rasters vacios recortados al limite
-#       urbano de cada localidad (rXX_wrap_nombreloc), envueltos con
-#       terra::wrap para poder guardarlos y recuperarlos entre sesiones.
-#     * Figs/Grillas/Fig2_EmptyRaster_<localidad>_<res>m.tif: visualizacion
-#       de cada grilla sobre el mapa satelital, con los centros de celda en
-#       cian y el limite urbano en amarillo.
-# 
+
 
 rm(list = ls())
 gc()

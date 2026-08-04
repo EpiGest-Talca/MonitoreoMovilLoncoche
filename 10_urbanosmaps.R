@@ -5,12 +5,6 @@
 # genera la Figura 1 con un panel por zona, ademas de exportar las capas
 # a shapefile para uso en QGIS.
 
-# Nota: la caja de cada mapa se calcula a partir de la extension real de
-#       los puntos GPS de esa ruta, con un margen del 15% y forzada al
-#       aspecto de panel de la figura (ancho/alto = 2.0), para que el mapa
-#       llene el panel sin bordes blancos y la ruta no quede lejana ni
-#       cortada.
-
 library(OpenStreetMap)
 library(sf)
 library(prettymapr)

@@ -1,7 +1,9 @@
 # Ratio movil/central (mov_corr / sc_corr) rasterizado por zona y resolucion.
 # Escala divergente fija (blanco ~1.0), igual para las 3 zonas.
 # Mismo motor de ploteo que 11_rasters.R: maptiles + tidyterra + ggplot2,
-# basemap recortado al extent real del raster, zoom dinamico por tamano.
+# basemap recortado al extent real del raster, zoom dinamico por tamano,
+# y misma estructura visual (titulo/leyenda flotantes, flecha de norte,
+# escala grafica, sin bordes negros).
 
 rm(list = ls()); gc()
 
@@ -12,6 +14,7 @@ library(tidyr)
 library(maptiles)
 library(tidyterra)
 library(ggplot2)
+library(ggspatial)   # annotation_north_arrow() y annotation_scale()
 
 CRS_UTM <- "EPSG:32718"
 
@@ -117,24 +120,51 @@ procesar_ratio <- function(df, coords, r_plantilla, res_m, area_label, zlab) {
   
   df_clas <- as.data.frame(raster_clas, xy = TRUE, na.rm = TRUE)
   
+  # Titulo como texto flotante DENTRO del panel (no labs(title=...), que
+  # reserva una franja de canvas aparte y genera borde negro).
+  x_centro <- (ext_r[1] + ext_r[2]) / 2
+  y_titulo <- ext_r[4] + pad * 0.55
+  
   g <- ggplot() +
     geom_spatraster_rgb(data = sat, maxcell = 5e6) +
     geom_tile(data = df_clas, aes(x = x, y = y, fill = categoria),
               color = "black", linewidth = 0.1, alpha = 0.75) +
     scale_fill_manual(values = RAT_COLORES, na.value = NA, na.translate = FALSE,
                       name = "Ratio\n(Mobile/Central)", drop = FALSE) +
+    annotate("label", x = x_centro, y = y_titulo,
+             label = sprintf("PM2.5 Ratio (Mobile/Central) - %s - %d m", area_label, res_m),
+             color = "white", fill = "black", alpha = 0.6, label.size = 0,
+             fontface = "bold", size = 5) +
+    # Escala grafica en km, abajo a la izquierda
+    annotation_scale(location = "bl", width_hint = 0.25, unit_category = "metric",
+                     style = "bar", line_col = "white", text_col = "white",
+                     bar_cols = c("black", "white"), text_cex = 0.8,
+                     pad_x = unit(0.3, "cm"), pad_y = unit(0.3, "cm")) +
+    # Flecha de norte, arriba a la derecha
+    annotation_north_arrow(location = "tr", which_north = "true",
+                           height = unit(1.6, "cm"), width = unit(1.6, "cm"),
+                           pad_x = unit(0.3, "cm"), pad_y = unit(0.3, "cm"),
+                           style = north_arrow_fancy_orienteering(
+                             fill = c("white", "black"), text_col = "white")) +
     coord_sf(xlim = c(ext_r[1] - pad, ext_r[2] + pad),
              ylim = c(ext_r[3] - pad, ext_r[4] + pad), expand = FALSE) +
-    labs(title = sprintf("PM2.5 Ratio (Mobile/Central) - %s - %d m", area_label, res_m)) +
     theme_void() +
-    theme(legend.position = "right",
-          legend.background = element_rect(fill = "white", color = "black"),
-          plot.title = element_text(color = "white", size = 14, face = "bold",
-                                    hjust = 0.5, margin = margin(t = 10, b = -28)),
-          plot.background = element_rect(fill = "black", color = NA))
+    theme(legend.position = c(0.985, 0.5),
+          legend.justification = c(1, 0.5),
+          legend.background = element_rect(fill = alpha("white", 0.85), color = "black"),
+          legend.margin = margin(6, 8, 6, 8),
+          legend.key.size = unit(0.9, "lines"),
+          legend.text = element_text(size = 9),
+          legend.title = element_text(size = 10),
+          plot.margin = margin(0, 0, 0, 0))
+  
+  # Sin ancho extra reservado: el panel ocupa TODO el lienzo, sin bordes
+  # negros. Titulo, leyenda, norte y escala quedan flotando sobre el mapa.
+  ancho_mapa <- 10
+  alto_mapa  <- ancho_mapa / aspecto
   
   ggsave(sprintf("Figs/Mapas_Finales/Fig4_RatioMap_%s_%dm.tif", zlab, res_m),
-         g, width = 10, height = 10 / aspecto, dpi = 300, units = "in")
+         g, width = ancho_mapa, height = alto_mapa, dpi = 300, units = "in")
   
   list(horas = wrap(stack_horas), dias = wrap(stack_dias), total = wrap(stack_total))
 }
