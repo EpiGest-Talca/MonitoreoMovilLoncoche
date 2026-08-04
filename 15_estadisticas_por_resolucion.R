@@ -4,14 +4,6 @@
 #
 # Metodologia (igual que Talca): media celda-dia -> media celda-campana ->
 # estadisticas (p05/p25/mediana/media/p75/p95) sobre las celdas.
-#
-# Carga Processed/med.RData + Processed/EmptyRasters.RData, mismas fuentes que 11_rasters.R
-# y 12_Rasterizacion_Ratio.R. El ratio se reporta para las tres zonas con nota:
-# la referencia central esta en Loncoche.
-#
-# Cada zona corre dentro de un tryCatch: si una falla, las demas igual se
-# generan (antes, un error en la primera zona cortaba el loop completo y no
-# quedaba ninguna tabla).
 
 rm(list = ls()); gc()
 

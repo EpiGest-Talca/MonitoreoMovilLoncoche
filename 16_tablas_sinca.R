@@ -108,7 +108,7 @@ save_as_docx(
 # SUPUESTO A VERIFICAR: orden de horas heredado de Talca (rutas nocturnas
 # 18:00 -> 03:00). Ajusta si las rutas de Loncoche se hicieron en otro
 # horario.
-orden_horas <- c("18", "19", "20", "21", "22", "23", "0", "1", "2", "3")
+orden_horas <- c("18", "19", "20", "21", "22", "23", "0", "1")
 
 plot_pm25_box <- sinca_hour %>%
   filter(!is.na(SC_PM25)) %>%
